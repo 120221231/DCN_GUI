@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>DCN</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <script type="text/javascript" src="gui_backend.js"></script>
+    </head>
+    <body>
+        <div class="container">
+          <h1>DCN</h1>
+          <hr/>
+          <div class="row">
+              <div class ="col-sm">
+                  <div id="chaos_testing_block">
+                      <p>Chaos Testing</p>
+                      <form id="chaos_testing_form" onsubmit="sendChaosFormData();return false">
+                          <div class="form-group">
+                              <label><input type="radio" name="optradio" id="chaos_radio_connection">Connection</label>
+                          </div>
+                          <div class="form-group">
+                              <label><input type="radio" name="optradio" id="chaos_radio_component">Component</label>
+                          </div>
+                          <p hidden><small>No selection</small></p>
+                          <div class="form-group">
+                              <input type="text" class = "form-control" placeholder="Connection/Component Id" id="chaos_id"/>
+                          </div>
+                          <p hidden><small>No input</small></p>
+                          <button type="submit" class="btn btn-secondary">Submit</button>
+                      </form>
+                  </div>
+                  <hr/>
+                  <div id="stress_testing_block">
+                      <p>Stress Testing</p>
+                      <form id="stress_testing_form" onsubmit="sendStressTestingFormData(); return false">
+                          <div class="form-group">
+                              <input type="text" class = "form-control" placeholder="Job Name" id="stress_user_name"/>
+                          </div>
+                          <p hidden><small>No input</small></p>
+                          <div class="form-group">
+                              <input type="number" class = "form-control" placeholder="Number of Jobs" id="stress_number_of_jobs"/>
+                          </div>
+                          <p hidden><small>No input</small></p>
+                          <div class="form-group">
+                              <input type="number" class = "form-control" placeholder="Duration of jobs in ms" id="stress_duration_of_job"/>
+                          </div>
+                          <p hidden><small>No input</small></p>
+                          <button type="submit" class="btn btn-secondary">Submit</button>
+                      </form>
+                  </div>
+              </div>
+              <div class="col-sm">
+                      <table>
+                          <tr>
+                            <th>Job</th>
+                            <th>Jobs Completed</th>
+                          </tr>
+                          <tr>
+                            <td>User 1</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>User 2</td>
+                            <td>2</td>
+                          </tr>
+                      </table>
+                      <hr/>
+                      <table>
+                          <tr>
+                            <th>Job</th>
+                            <th>Round Trip Time(ms)</th>
+                          </tr>
+                          <tr>
+                            <td>Job 1</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>Job 2</td>
+                            <td>2</td>
+                          </tr>
+                      </table>
+                  <hr/>
+                  <table>
+                      <tr>
+                        <th>Server</th>
+                        <th>CPU Utilization %</th>
+                        <th>RAM Utilization %</th>
+                      </tr>
+                      <tr>
+                        <td>Server 1</td>
+                        <td>10</td>
+                        <td>20</td>
+                      </tr>
+                      <tr>
+                        <td>Server 2</td>
+                        <td>2</td>
+                        <td>4</td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+        </div>
+    </body>
+</html>
