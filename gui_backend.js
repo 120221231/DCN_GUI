@@ -9,7 +9,22 @@ function sendChaosFormData(){
         error = true;
     }
     if(!error){
-        alert("submission successful")
+        var dcnNode;
+        if (document.getElementById("chaos_radio_connection").checked)
+        dcnNode = "Connection";
+        else
+        dcnNode = "Component";
+        var id = document.getElementById("chaos_id").value;
+        axios.post('dummy-url', {
+            dcnNode,
+            id
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
     
 }
@@ -28,6 +43,19 @@ function sendStressTestingFormData(){
         error = true;
     }
     if(!error){
-        alert("submission successful")
+        var userName=document.getElementById("stress_user_name").value;
+        var numJobs=document.getElementById("stress_number_of_jobs").value;
+        var jobDuration=document.getElementById("stress_duration_of_job").value;
+        axios.post('dummy-url', {
+            userName,
+            numJobs,
+            jobDuration
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 }

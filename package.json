@@ -4,11 +4,14 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-        "start": "electron ."
-    },
+    "start": "electron ."
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0"
+  },
   "devDependencies": {
     "electron": "^11.0.2"
   }
