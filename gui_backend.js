@@ -57,5 +57,57 @@ function sendStressTestingFormData(){
           .catch(function (error) {
             console.log(error);
           });
+    }   
+}
+function populateJobStatusTable(){
+  const table = document.getElementById("job_status_table_body");
+
+  let row = table.insertRow();
+  let job = row.insertCell(0);
+  job.innerHTML = "Job 1";
+  let time = row.insertCell(1);
+  time.innerHTML = "10";
+
+  row = table.insertRow();
+  job = row.insertCell(0);
+  job.innerHTML = "Job 2";
+  time = row.insertCell(1);
+  time.innerHTML = "20";
+
+  modifyJobStatus();
+}
+
+function populateServerStatusTable(){
+  const table = document.getElementById("server_status_table_body");
+
+  let row = table.insertRow();
+  let server = row.insertCell(0);
+  let cpu_usage = row.insertCell(1);
+  let ram_usage = row.insertCell(2);
+  server.innerHTML = "server 1";
+  cpu_usage.innerHTML = "10";
+  ram_usage.innerHTML = "20";
+}
+
+function modifyJobStatus(){
+  var table= Array.prototype.slice.call(document.getElementById("job_status_table_body").rows, 0);
+  table.forEach(element => {
+    if(element.cells[0].innerHTML == "Job 1"){
+      element.cells[1].innerHTML = 12;
     }
+  });
+}
+
+function modifyCPUUsage(){
+  var table = Array.prototype.slice.call(document.getElementById("server_status_table_body").rows, 0);
+  table.forEach(element => {
+    //do something
+  });
+}
+
+function modifyRAMUsage(){
+  var table = Array.prototype.slice.call(document.getElementById("server_status_table_body").rows, 0);
+  table.forEach(element => {
+    //do something
+  });
 }

@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="style.css">
       <script type="text/javascript" src="gui_backend.js"></script>
     </head>
-    <body>
+    <body onload="populateJobStatusTable();populateServerStatusTable()">
         <div class="container">
           <h1>DCN</h1>
           <hr/>
@@ -56,38 +56,31 @@
                   </div>
               </div>
               <div class="col-sm">
-                      <hr/>
-                      <table>
-                          <tr>
-                            <th>Job</th>
-                            <th>Round Trip Time(ms)</th>
-                          </tr>
-                          <tr>
-                            <td>Job 1</td>
-                            <td>10</td>
-                          </tr>
-                          <tr>
-                            <td>Job 2</td>
-                            <td>2</td>
-                          </tr>
-                      </table>
+                <hr/>
+                <table style="width: 100%">
+                    <colgroup>
+                        <col span="1" style="width: 30%;">
+                        <col span="1" style="width: 70%;">
+                     </colgroup>
+                    <thead>
+                        <th>Job</th>
+                        <th>Round Trip Time(ms)</th>
+                    </thead>
+                    <tbody id="job_status_table_body"></tbody>
+                  </table>
                   <hr/>
-                  <table>
-                      <tr>
+                  <table style="width: 100%">
+                    <colgroup>
+                        <col span="1" style="width: 20%;">
+                        <col span="1" style="width: 40%;">
+                        <col span="1" style="width: 40%;">
+                     </colgroup>
+                    <thead>
                         <th>Server</th>
                         <th>CPU Utilization %</th>
                         <th>RAM Utilization %</th>
-                      </tr>
-                      <tr>
-                        <td>Server 1</td>
-                        <td>10</td>
-                        <td>20</td>
-                      </tr>
-                      <tr>
-                        <td>Server 2</td>
-                        <td>2</td>
-                        <td>4</td>
-                      </tr>
+                    </thead>
+                    <tbody id="server_status_table_body"></tbody>
                   </table>
               </div>
           </div>
