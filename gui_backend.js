@@ -1,20 +1,24 @@
 function sendChaosFormData(){
     var error = false;
-    if(!(document.getElementById("chaos_radio_connection").checked||document.getElementById("chaos_radio_component").checked)){
+    var chaosRadioButtonConnection = document.getElementById("chaos_radio_connection");
+    var chaosRadioButtonComponent = document.getElementById("chaos_radio_component");
+    var chaosId = document.getElementById("chaos_id");
+    if(!(chaosRadioButtonConnection.checked
+      ||chaosRadioButtonComponent.checked)){
         alert("choose connection/component");
         error = true;
     }
-    if(document.getElementById("chaos_id").value == ""){
+    if(chaosId.value == ""){
         alert("enter id");
         error = true;
     }
     if(!error){
         var dcnNode;
-        if (document.getElementById("chaos_radio_connection").checked)
+        if (chaosRadioButtonConnection.checked)
         dcnNode = "Connection";
         else
         dcnNode = "Component";
-        var id = document.getElementById("chaos_id").value;
+        var id = chaosId.value;
         axios.post('dummy-url', {
             dcnNode,
             id
@@ -30,22 +34,25 @@ function sendChaosFormData(){
 }
 function sendStressTestingFormData(){
     var error = false;
-    if(document.getElementById("stress_user_name").value == ""){
+    var userName = document.getElementById("stress_user_name");
+    var numberOfJobs = document.getElementById("stress_number_of_jobs");
+    var jobDuration = document.getElementById("stress_duration_of_job");
+    if(userName.value == ""){
         alert("enter user name");
         error = true;
     }
-    if(document.getElementById("stress_number_of_jobs").value == ""){
+    if(numberOfJobs.value == ""){
         alert("enter number of jobs");
         error = true;
     }
-    if(document.getElementById("stress_duration_of_job").value == ""){
+    if(jobDuration.value == ""){
         alert("enter duration of jobs");
         error = true;
     }
     if(!error){
-        var userName=document.getElementById("stress_user_name").value;
-        var numJobs=document.getElementById("stress_number_of_jobs").value;
-        var jobDuration=document.getElementById("stress_duration_of_job").value;
+        var userName=userName.value;
+        var numJobs=numberOfJobs.value;
+        var jobDuration=jobDuration.value;
         axios.post('dummy-url', {
             userName,
             numJobs,
