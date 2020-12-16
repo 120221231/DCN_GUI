@@ -15,5 +15,5 @@ Step 2:
 Running the application:
 Command: npm start
 
-Running tests:
-Command: npm run test
+  Running tests:
+  Command: npm run test
