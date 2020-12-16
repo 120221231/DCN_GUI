@@ -30,7 +30,7 @@ function sendChaosFormData(){
             console.log(error);
           });
     }
-    
+    return error;
 }
 function sendStressTestingFormData(){
     var error = false;
@@ -65,6 +65,7 @@ function sendStressTestingFormData(){
             console.log(error);
           });
     }   
+    return error;
 }
 function populateJobStatusTable(){
   const table = document.getElementById("job_status_table_body");
@@ -118,3 +119,5 @@ function modifyRAMUsage(){
     //do something
   });
 }
+
+module.exports = sendStressTestingFormData();
