@@ -120,4 +120,4 @@ function modifyRAMUsage(){
   });
 }
 
-module.exports = sendStressTestingFormData();
+module.exports = sendStressTestingFormData;
