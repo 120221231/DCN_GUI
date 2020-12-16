@@ -14,3 +14,6 @@ Command: npm install
 Step 2:
 Run the application.
 Command: npm start
+
+Running test files:
+Command: npm run test
