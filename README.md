@@ -12,8 +12,8 @@ Navigate to the directory on a terminal and install the required node modules.
 Command: npm install
 
 Step 2:
-Run the application.
+Running the application:
 Command: npm start
 
-Running test files:
+Running tests:
 Command: npm run test
