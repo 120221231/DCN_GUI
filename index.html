@@ -22,11 +22,14 @@
                       <p>Chaos Testing</p>
                       <form id="chaos_testing_form" onsubmit="sendChaosFormData();return false">
                           <div class="form-group">
-                              <label><input type="radio" name="optradio" id="chaos_radio_connection">Connection</label>
+                              <label><input type="radio" name="optradio" id="chaos_radio_kill_component">Kill Component</label>
                           </div>
                           <div class="form-group">
-                              <label><input type="radio" name="optradio" id="chaos_radio_component">Component</label>
+                              <label><input type="radio" name="optradio" id="chaos_radio_disconnect_component">Disconnect Component</label>
                           </div>
+                          <div class="form-group">
+                            <label><input type="radio" name="optradio" id="chaos_radio_reconnect_connection">Reconnect Component</label>
+                        </div>
                           <p hidden><small>No selection</small></p>
                           <div class="form-group">
                               <input type="text" class = "form-control" placeholder="Connection/Component Id" id="chaos_id"/>
@@ -57,36 +60,19 @@
               </div>
               <div class="col-sm">
                       <hr/>
-                      <table>
+                      <table id="job_status_table">
                           <tr>
                             <th>Job</th>
-                            <th>Round Trip Time(ms)</th>
-                          </tr>
-                          <tr>
-                            <td>Job 1</td>
-                            <td>10</td>
-                          </tr>
-                          <tr>
-                            <td>Job 2</td>
-                            <td>2</td>
+                            <th>Completed</th>
+                            <th>Total</th>
                           </tr>
                       </table>
                   <hr/>
-                  <table>
+                  <table id="server_utilization_status_table">
                       <tr>
-                        <th>Server</th>
+                        <th>Component</th>
                         <th>CPU Utilization %</th>
                         <th>RAM Utilization %</th>
-                      </tr>
-                      <tr>
-                        <td>Server 1</td>
-                        <td>10</td>
-                        <td>20</td>
-                      </tr>
-                      <tr>
-                        <td>Server 2</td>
-                        <td>2</td>
-                        <td>4</td>
                       </tr>
                   </table>
               </div>
