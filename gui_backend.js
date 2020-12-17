@@ -10,9 +10,9 @@ function sendChaosFormData(){
     var chaosRadioButtonReconnect= document.getElementById("chaos_radio_reconnect_connection");
     var chaosId = document.getElementById("chaos_id");
     if(!(chaosRadioButtonKill.checked
-      ||chaosRadioButtonDisconnect.checked)
-      ||chaosRadioButtonReconnect.checked){
-        alert("choose connection/component");
+      ||chaosRadioButtonDisconnect.checked
+      ||chaosRadioButtonReconnect.checked)){
+        alert("choose kill/disconnect/reconnect");
         error = true;
     }
     if(chaosId.value == ""){
@@ -24,9 +24,9 @@ function sendChaosFormData(){
         if (chaosRadioButtonKill.checked)
           url = "http://localhost:5021/kill";
         else if(chaosRadioButtonDisconnect.checked)
-          url = "http://localhost:5021/kill";
+          url = "http://localhost:5021/disconnect";
         else if(chaosRadioButtonReconnect.checked)
-          url = "http://localhost:5021/kill";
+          url = "http://localhost:5021/reconnect";
         var component_id = chaosId.value;
         axios.post(url, {
             "component_id": component_id
@@ -38,24 +38,31 @@ function sendChaosFormData(){
 }
 function sendStressTestingFormData(){
     var error = false;
-    var jobId = document.getElementById("stress_job_id");
+    var jobName = document.getElementById("stress_job_name");
     var numberOfJobs = document.getElementById("stress_number_of_jobs");
     var jobDuration = document.getElementById("stress_duration_of_job");
-    
-    if(jobId.value == ""){
-        alert("enter user name");
+    if(jobName.value == ""){
+        alert("enter job name");
         error = true;
     }
     if(numberOfJobs.value == ""){
         alert("enter number of jobs");
         error = true;
     }
+    else  if(!(parseInt(numberOfJobs.value)>0&&parseInt(numberOfJobs.value)<=100)){
+      alert("Number of jobs should be a value between 1 and 100");
+      error = true;
+    }
     if(jobDuration.value == ""){
         alert("enter duration of jobs");
         error = true;
     }
+    else if(!(parseInt(jobDuration.value)>0&&parseInt(jobDuration.value)<=30)){
+      alert("Number of jobs should be a value between 1 and 30");
+      error = true;
+    }
     if(!error){
-        var job_name=jobId.value;
+        var job_name=jobName.value;
         var num_jobs=numberOfJobs.value;
         var job_duration=jobDuration.value;
         
