@@ -85,17 +85,26 @@ function loadJobStatusData(){
 function loadServerStatusData(){
   const ServerStatusInterval = setInterval(function() {
     populateServerStatusTable();
-    alert("here")
   }, 10000);
 }
 
 function populateJobStatusTable(){
   const table = document.getElementById("job_status_table");
+  // var obj = JSON.parse('{ "Joy": {"completed": 8, "total": 22},"Solar": { "completed": 30, "total": 30},"Tiffany": {"completed": 20,"total": 20}}');
+  // Object.keys(obj).forEach(function(job){
+  //   let row = table.insertRow();
+  //   let job_cell = row.insertCell(0);
+  //   job_cell.innerHTML = job;
+  //   let completed_cell = row.insertCell(1);
+  //   completed_cell.innerHTML = obj[job]["completed"];
+  //   let total_cell = row.insertCell(2);
+  //   total_cell.innerHTML = obj[job]["total"];
+  // })
 
   monitoringSystemUrl = "http://localhost:5031/job_status";
   axios.get(monitoringSystemUrl)
     .then(resp => {
-      Object.keys(JSON.parse(resp.data)).forEach(job => {
+      Object.keys(JSON.parse(resp.data)).forEach(function(job){
         let row = table.insertRow();
         let job_cell = row.insertCell(0);
         job_cell.innerHTML = job;
@@ -110,18 +119,28 @@ function populateJobStatusTable(){
 
 function populateServerStatusTable(){
   const table = document.getElementById("server_utilization_status_table");
+  // var obj = JSON.parse('[ { "name": "dcn_worker3_1", "stats": {"cpu_percentage": 0.074,"mem_percentage": 0.002}},{"name": "dcn_worker1_1","stats": {"cpu_percentage": 0.084,"mem_percentage": 0.002}}]');
+  // obj.forEach(function(component) {
+  //   let row = table.insertRow();
+  //   let component_cell = row.insertCell(0);
+  //   component_cell.innerHTML = component["name"];
+  //   let cpu_utilization_cell = row.insertCell(1);
+  //   cpu_utilization_cell.innerHTML = component["stats"]["cpu_percentage"];
+  //   let ram_utilization_cell = row.insertCell(2);
+  //   ram_utilization_cell.innerHTML = component["stats"]["mem_percentage"];
+  // });
   
   monitoringSystemUrl = "http://localhost:5031/status";
   axios.get(monitoringSystemUrl)
     .then(resp => {
-      Object.keys(JSON.parse(resp.data)).forEach(component => {
+      Object.keys(JSON.parse(resp.data)).forEach(function(component) {
         let row = table.insertRow();
         let component_cell = row.insertCell(0);
         component_cell.innerHTML = component["name"];
         let cpu_utilization_cell = row.insertCell(1);
-        cpu_utilization_cell.innerHTML = resp.json[component]["stats"]["cpu_percentage"];
+        cpu_utilization_cell.innerHTML = component["stats"]["cpu_percentage"];
         let ram_utilization_cell = row.insertCell(2);
-        ram_utilization_cell.innerHTML = resp.json[component]["stats"]["mem_percentage"];
+        ram_utilization_cell.innerHTML = component["stats"]["mem_percentage"];
       })
     })
     .catch(err => console.log(err));
