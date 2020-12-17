@@ -53,34 +53,66 @@ function sendStressTestingFormData(){
         var num_jobs=numberOfJobs.value;
         var job_duration=jobDuration.value;
         
-        axios({
-          method: 'post',
-          url: 'http://localhost:3030/abc',
-          data: {
+        console.log({
             'job_name':job_name,
             'num_jobs':num_jobs,
-            'job_Duration': job_duration
-                }
-        });
+            'job_duration': job_duration
+                });
+
+        axios.post('http://localhost:5011/jobs', {
+            'job_name':job_name,
+            'num_jobs':parseInt(num_jobs),
+            'job_duration': parseInt(job_duration),
+                })
+            .then(resp => console.log(resp.data))
+            .catch(console.log);
+        // axios({
+        //   method: 'post',
+        //   url: 'http://localhost:5011/jobs',
+        //   data: {
+        //     'job_name':job_name,
+        //     'num_jobs':num_jobs,
+        //     'job_duration': job_duration
+        //         }
+        // });
       } 
     return error;
 }
+
 function populateJobStatusTable(){
   const table = document.getElementById("job_status_table_body");
+  
+  // let row = table.insertRow();
+  // let job = row.insertCell(0);
+  // job.innerHTML = "Job Name";
+  // let completed = row.insertCell(1);
+  // completed.innerHTML = "Completed";
+  // let total = row.insertCell(2);
+  // total.innerHTML = "Total";
 
-  let row = table.insertRow();
-  let job = row.insertCell(0);
-  job.innerHTML = "Job 1";
-  let time = row.insertCell(1);
-  time.innerHTML = "10";
+  // monitoringSystemUrl = "http://localhost:5031/job_status";
+  // axios.get(monitoringSystemUrl)
+  //   .then(resp => {
+  //     Object.keys(JSON.parse(resp.data)).forEach(job => {
+  //       let row = table.insertRow();
+  //       let job_row = row.insertCell(0);
+  //       job_row.innerHTML = job;
+  //       let completed = row.insertCell(1);
+  //       completed.innerHTML = resp.json[job]["completed"];
+  //       let total = row.insertCell(2);
+  //       total.innerHTML = resp.json[job]["total"];
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
 
-  row = table.insertRow();
-  job = row.insertCell(0);
-  job.innerHTML = "Job 2";
-  time = row.insertCell(1);
-  time.innerHTML = "20";
 
-  modifyJobStatus();
+  // row = table.insertRow();
+  // job = row.insertCell(0);
+  // job.innerHTML = "Job 2";
+  // time = row.insertCell(1);
+  // time.innerHTML = "20";
+
+  // modifyJobStatus();
 }
 
 function populateServerStatusTable(){
