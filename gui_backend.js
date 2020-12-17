@@ -1,3 +1,4 @@
+const axios = require('axios');
 function sendChaosFormData(){
     var error = false;
     var chaosRadioButtonConnection = document.getElementById("chaos_radio_connection");
@@ -18,17 +19,14 @@ function sendChaosFormData(){
         dcnNode = "Connection";
         else
         dcnNode = "Component";
-        var id = chaosId.value;
-        axios.post('dummy-url', {
-            dcnNode,
-            id
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        var component_id = chaosId.value;
+        axios({
+          method: 'post',
+          url: 'http://localhost:3030/abc',
+          data: {
+            component_id: component_id
+                }
+        });
     }
     return error;
 }
@@ -37,6 +35,7 @@ function sendStressTestingFormData(){
     var userName = document.getElementById("stress_user_name");
     var numberOfJobs = document.getElementById("stress_number_of_jobs");
     var jobDuration = document.getElementById("stress_duration_of_job");
+    
     if(userName.value == ""){
         alert("enter user name");
         error = true;
@@ -50,21 +49,20 @@ function sendStressTestingFormData(){
         error = true;
     }
     if(!error){
-        var userName=userName.value;
-        var numJobs=numberOfJobs.value;
-        var jobDuration=jobDuration.value;
-        axios.post('dummy-url', {
-            userName,
-            numJobs,
-            jobDuration
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }   
+        var job_name=userName.value;
+        var num_jobs=numberOfJobs.value;
+        var job_duration=jobDuration.value;
+        
+        axios({
+          method: 'post',
+          url: 'http://localhost:3030/abc',
+          data: {
+            'job_name':job_name,
+            'num_jobs':num_jobs,
+            'job_Duration': job_duration
+                }
+        });
+      } 
     return error;
 }
 function populateJobStatusTable(){
