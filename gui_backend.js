@@ -97,7 +97,20 @@ function loadServerStatusData(){
 
 function populateJobStatusTable(){
   const table = document.getElementById("job_status_table");
-  // var obj = JSON.parse('{ "Joy": {"completed": 8, "total": 22},"Solar": { "completed": 30, "total": 30},"Tiffany": {"completed": 20,"total": 20}}');
+  // var obj = { 
+  //   "Joy": {
+  //     "completed": 8,
+  //     "total": 22
+  //   },
+  //   "Solar": {
+  //     "completed": 30,
+  //     "total": 30
+  //   },
+  //   "Tiffany": {
+  //     "completed": 20,
+  //     "total": 20
+  //   }
+  // };
   // Object.keys(obj).forEach(function(job){
   //   let row = table.insertRow();
   //   let job_cell = row.insertCell(0);
@@ -126,7 +139,78 @@ function populateJobStatusTable(){
 
 function populateServerStatusTable(){
   const table = document.getElementById("server_utilization_status_table");
-  // var obj = JSON.parse('[ { "name": "dcn_worker3_1", "stats": {"cpu_percentage": 0.074,"mem_percentage": 0.002}},{"name": "dcn_worker1_1","stats": {"cpu_percentage": 0.084,"mem_percentage": 0.002}}]');
+  // var obj = [
+  //   {
+  //     "name": "dcn_stresstesting_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.567, 
+  //       "mem_percentage": 0.005
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_chaostesting_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.642, 
+  //       "mem_percentage": 0.006
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_loadbalancer_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.083, 
+  //       "mem_percentage": 0.003
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_worker3_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.057, 
+  //       "mem_percentage": 0.002
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_worker1_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.064, 
+  //       "mem_percentage": 0.002
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_worker2_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.062, 
+  //       "mem_percentage": 0.002
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_worker4_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.039, 
+  //       "mem_percentage": 0.002
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_mss_1", 
+  //     "stats": {
+  //       "cpu_percentage": 0.766, 
+  //       "mem_percentage": 0.007
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_rabbitmq1_1", 
+  //     "stats": {
+  //       "cpu_percentage": 3.497, 
+  //       "mem_percentage": 0.015
+  //     }
+  //   }, 
+  //   {
+  //     "name": "dcn_rabbitmq2_1", 
+  //     "stats": {
+  //       "cpu_percentage": 3.465, 
+  //       "mem_percentage": 0.015
+  //     }
+  //   }
+  // ];
   // obj.forEach(function(component) {
   //   let row = table.insertRow();
   //   let component_cell = row.insertCell(0);
