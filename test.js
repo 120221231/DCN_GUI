@@ -71,14 +71,6 @@ describe('index.html', () => {
     const button = getAllByText(container, 'Submit')[1];
     fireEvent.submit(button);
   })
-  it('Should alert when job id <0', async () => {
-    const button = getAllByText(container, 'Submit')[1];
-    fireEvent.submit(button);
-  })
-  it('Should alert when job id >99', async () => {
-    const button = getAllByText(container, 'Submit')[1];
-    fireEvent.submit(button);
-  })
   it('Should alert when number of jobs >100', async () => {
     const button = getAllByText(container, 'Submit')[1];
     fireEvent.submit(button);

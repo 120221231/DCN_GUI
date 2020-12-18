@@ -111,7 +111,7 @@ function populateJobStatusTable(){
   monitoringSystemUrl = "http://localhost:5031/job_status";
   axios.get(monitoringSystemUrl)
     .then(resp => {
-      Object.keys(JSON.parse(resp.data)).forEach(function(job){
+      Object.keys(resp.data).forEach(function(job){
         let row = table.insertRow();
         let job_cell = row.insertCell(0);
         job_cell.innerHTML = job;
@@ -140,7 +140,7 @@ function populateServerStatusTable(){
   monitoringSystemUrl = "http://localhost:5031/status";
   axios.get(monitoringSystemUrl)
     .then(resp => {
-      Object.keys(JSON.parse(resp.data)).forEach(function(component) {
+      Object.keys(resp.data).forEach(function(component) {
         let row = table.insertRow();
         let component_cell = row.insertCell(0);
         component_cell.innerHTML = component["name"];
